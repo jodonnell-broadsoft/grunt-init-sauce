@@ -70,8 +70,8 @@ module.exports = function(grunt) {
     // Default task.
     grunt.registerTask('default', ['test:sauce:' + _(desireds).keys().first()]);
 
-    _(desireds).each(function(desired, key) {
-            grunt.registerTask('test:sauce:' + key, ['env:' + key, 'simplemocha:sauce']);
+    _.each(desireds, function(desired, key) {
+      grunt.registerTask('test:sauce:' + key, ['env:' + key, 'simplemocha:sauce']);
     });
 
     grunt.registerTask('test:sauce:parallel', ['concurrent:test-sauce']);
